@@ -7,10 +7,10 @@ export default async function MySQL(query) {
     // get the client
     // create the connection
     const connection = await mysql.createConnection({
-        host:'localhost',
-        user: 'root',
-        password: 'Mikeandike2!',
-        database: 'fomezao_api'
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE
     });
     // query database
     const [rows, fields] = await connection.execute(query);
